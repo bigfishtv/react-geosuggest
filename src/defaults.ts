@@ -4,6 +4,7 @@
  * Default values
  */
 export default {
+  alwaysUseGeocoder: false,
   autoActivateFirstSuggest: false,
   disabled: false,
   fixtures: [],
@@ -19,6 +20,5 @@ export default {
   placeholder: 'Search places',
   queryDelay: 250,
   skipSuggest: () => false,
-  style: {},
-  alwaysUseGeocoder: false
+  style: {}
 };
