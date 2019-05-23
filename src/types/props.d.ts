@@ -56,4 +56,6 @@ export default interface IProps {
   readonly autoComplete?: string;
   readonly minLength?: number;
   readonly placeDetailFields?: string[] | null;
+  readonly transformUserInput?: (userInput: string) => string;
+  readonly alwaysUseGeocoder?: boolean;
 }

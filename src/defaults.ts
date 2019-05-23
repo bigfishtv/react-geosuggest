@@ -19,5 +19,6 @@ export default {
   placeholder: 'Search places',
   queryDelay: 250,
   skipSuggest: () => false,
-  style: {}
+  style: {},
+  alwaysUseGeocoder: false
 };

@@ -264,16 +264,22 @@ export default class extends React.Component<IProps, IState> {
    * Search for new suggests
    */
   searchSuggests() {
-    if (!this.state.userInput) {
+    let userInput = this.state.userInput;
+
+    if (this.props.transformUserInput) {
+      userInput = this.props.transformUserInput(userInput);
+    }
+
+    if (!userInput) {
       this.updateSuggests();
       return;
     }
 
     const options: google.maps.places.AutocompletionRequest = {
-      input: this.state.userInput,
+      input: userInput,
       sessionToken: this.sessionToken
     };
-    const inputLength = this.state.userInput.length;
+    const inputLength = userInput.length;
     const isShorterThanMinLength =
       this.props.minLength && inputLength < this.props.minLength;
 
@@ -502,6 +508,7 @@ export default class extends React.Component<IProps, IState> {
     }
 
     if (
+      !this.props.alwaysUseGeocoder &&
       suggestToGeocode.placeId &&
       !suggestToGeocode.isFixture &&
       this.placesService
