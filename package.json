@@ -1,18 +1,18 @@
 {
-  "name": "react-geosuggest",
+  "name": "@bigfishtv/react-geosuggest",
   "version": "2.12.0",
-  "description": "A React autosuggest for the Google Maps Places API.",
+  "description": "A FORKED version of React autosuggest for the Google Maps Places API.",
   "main": "module/Geosuggest.umd.js",
   "module": "module/Geosuggest.esm.js",
   "author": "Robert Katzki <katzki@ubilabs.net>",
-  "homepage": "https://github.com/ubilabs/react-geosuggest",
+  "homepage": "https://github.com/bigfishtv/react-geosuggest",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ubilabs/react-geosuggest.git"
+    "url": "https://github.com/bigfishtv/react-geosuggest.git"
   },
   "bugs": {
-    "url": "https://github.com/ubilabs/react-geosuggest/issues"
+    "url": "https://github.com/bigfishtv/react-geosuggest/issues"
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0 || ^16.0.0",
