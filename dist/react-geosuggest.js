@@ -480,6 +480,7 @@ var Geosuggest = (function (React) {
      * Default values
      */
     var defaults = {
+        alwaysUseGeocoder: false,
         autoActivateFirstSuggest: false,
         disabled: false,
         fixtures: [],
@@ -1046,15 +1047,19 @@ var Geosuggest = (function (React) {
          */
         default_1$1.prototype.searchSuggests = function () {
             var _this = this;
-            if (!this.state.userInput) {
+            var userInput = this.state.userInput;
+            if (this.props.transformUserInput) {
+                userInput = this.props.transformUserInput(userInput);
+            }
+            if (!userInput) {
                 this.updateSuggests();
                 return;
             }
             var options = {
-                input: this.state.userInput,
+                input: userInput,
                 sessionToken: this.sessionToken
             };
-            var inputLength = this.state.userInput.length;
+            var inputLength = userInput.length;
             var isShorterThanMinLength = this.props.minLength && inputLength < this.props.minLength;
             if (isShorterThanMinLength) {
                 return;
@@ -1243,7 +1248,8 @@ var Geosuggest = (function (React) {
             if (!this.geocoder) {
                 return;
             }
-            if (suggestToGeocode.placeId &&
+            if (!this.props.alwaysUseGeocoder &&
+                suggestToGeocode.placeId &&
                 !suggestToGeocode.isFixture &&
                 this.placesService) {
                 var options = {
